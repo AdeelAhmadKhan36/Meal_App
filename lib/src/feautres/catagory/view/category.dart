@@ -1,7 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:meal_app/src/data/dummy_data.dart';
 import 'package:meal_app/src/feautres/catagory/widgets/category_grid_item.dart';
 
+import '../../../model/catagory_model.dart';
 import '../../meal/view/mealpage.dart';
 class Categorypage extends StatefulWidget {
   const Categorypage({super.key});
@@ -12,9 +14,16 @@ class Categorypage extends StatefulWidget {
 
 class _CategorypageState extends State<Categorypage> {
 
-  void _selectCategory(){
+  void _selectCategory(Categories category){
+    final filterMeal=dummyMeals.where((meal)=>meal.categories.contains(category.id)).toList();
+
+
     Navigator.push(context, MaterialPageRoute(builder: (context){
-      return Mealpage(title: 'Some Categories',meal:dummyMeals,);
+      return Mealpage(
+
+        title: category.title,
+
+        meal:dummyMeals,);
     }));
   }
   @override
@@ -43,8 +52,8 @@ class _CategorypageState extends State<Categorypage> {
           children: [
             for(final category in availableCategories)
               CategoryGridItems(category: category,
-              onSelectCategory: _selectCategory
-                ,
+                  onSelectCategory: () => _selectCategory(category),
+
               )
           ],
         ),

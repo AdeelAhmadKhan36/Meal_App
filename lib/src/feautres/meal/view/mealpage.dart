@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_app/src/feautres/meal/widgets/meal_item.dart';
 import 'package:meal_app/src/model/meal.dart';
 
 class Mealpage extends StatelessWidget {
@@ -32,7 +33,7 @@ class Mealpage extends StatelessWidget {
       content=ListView.builder(
         itemCount: meal.length,
           itemBuilder: (ctx, index){
-            return Text(meal[index].title);
+            return MealItemScreen(meal: meal[index]);
           });
 
     }
