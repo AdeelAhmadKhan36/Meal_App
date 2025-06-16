@@ -4,9 +4,9 @@ import 'package:meal_app/src/model/meal.dart';
 
 class Mealpage extends StatelessWidget {
 
-  final String title;
+  final String? title;
   final List<Meal>meal;
-  const Mealpage({super.key, required this.title, required this.meal});
+   Mealpage({super.key,  this.title,  required this.meal});
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +37,12 @@ class Mealpage extends StatelessWidget {
           });
 
     }
+    if(title==null){
+      return content;
+    }
     return Scaffold(
         appBar: AppBar(
-          title: Text(title),
+          title: Text(title!),
         ),
       body: content,
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meal_app/src/feautres/catagory/view/category.dart';
+import 'package:meal_app/src/feautres/tabs/meal_tab.dart';
 import 'package:meal_app/src/them/app_theme.dart';
 
 void main() {
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.darkTheme,
       darkTheme: AppTheme.darkTheme,
 
-      home: Categorypage(),
+      // home: Categorypage(),
+      home: TabScreen(),
     );
   }
 }

@@ -21,8 +21,31 @@ class MealDetailScreen extends StatelessWidget {
               fit: BoxFit.cover,
             ),
             const SizedBox(height: 10),
+            Text("Ingredient",style:  TextStyle(
+              color: Colors.orange,
+                fontWeight: FontWeight.bold,
+                fontSize: 18),
+              textAlign: TextAlign.center,
+
+            ),
+            for(final ingredient in meal.ingredients)
             Text(
-              meal.steps.toString(),
+               ingredient,
+              style: const TextStyle(fontSize: 18),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 20),
+
+            Text("Steps",style:  TextStyle(
+                color: Colors.orange,
+                fontWeight: FontWeight.bold,
+                fontSize: 18),
+              textAlign: TextAlign.center,
+
+            ),
+            Text(
+              meal.steps.toString()
+              ,
               style: const TextStyle(fontSize: 18),
               textAlign: TextAlign.center,
             ),

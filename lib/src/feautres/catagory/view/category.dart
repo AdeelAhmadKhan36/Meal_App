@@ -29,14 +29,14 @@ class _CategorypageState extends State<Categorypage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.indigo,
-        title: Center(
-          child: Text("Pick Your Category",style: TextStyle(
-            color: Colors.white
-          ),),
-        ),
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.indigo,
+      //   title: Center(
+      //     child: Text("Pick Your Category",style: TextStyle(
+      //       color: Colors.white
+      //     ),),
+      //   ),
+      // ),
 
       body: Padding(
         padding: const EdgeInsets.all(8.0),
