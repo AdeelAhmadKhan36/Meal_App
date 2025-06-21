@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meal_app/src/feautres/meal/widgets/meal_item.dart';
 import 'package:meal_app/src/model/meal.dart';
+import 'package:meal_app/src/providers/meal_provider.dart';
 
-class Mealpage extends StatelessWidget {
+class Mealpage extends ConsumerWidget  {
 
   final String? title;
   final List<Meal>meal;
-   Mealpage({super.key,  this.title,  required this.meal});
+  final void Function(Meal meal)onToggleFavourite;
+
+  Mealpage({super.key,  this.title,  required this.meal, required this.onToggleFavourite});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context , WidgetRef ref) {
+    final meal=ref.watch(mealPrvoder);
     Widget content=Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -33,7 +38,7 @@ class Mealpage extends StatelessWidget {
       content=ListView.builder(
         itemCount: meal.length,
           itemBuilder: (ctx, index){
-            return MealItemScreen(meal: meal[index]);
+            return MealItemScreen(meal: meal[index],  onToggleFavourite: onToggleFavourite,);
           });
 
     }
